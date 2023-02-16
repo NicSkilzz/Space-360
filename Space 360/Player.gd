@@ -1,21 +1,36 @@
 extends KinematicBody2D
 
-export (int) var speed = 160
+export (int) var SPEED = 200
+export (int) var ACCELERATION = 10
+export (int) var FRICTION = 1
 
+var input_direction = Vector2()
 var velocity = Vector2()
 
-func get_input(delta):
-	velocity = Vector2()
+func get_input_direction():
+	input_direction = Vector2()
+	
 	if Input.is_action_pressed("ui_right"):
-		velocity.x += 1
+		input_direction.x += 1
 	if Input.is_action_pressed("ui_left"):
-		velocity.x -= 1
+		input_direction.x -= 1
 	if Input.is_action_pressed("ui_down"):
-		velocity.y += 1
+		input_direction.y += 1
 	if Input.is_action_pressed("ui_up"):
-		velocity.y -= 1
-	velocity = velocity.normalized() * speed * delta * 60
+		input_direction.y -= 1
+	
+	input_direction = input_direction.normalized()
 
 func _physics_process(delta):
-	get_input(delta)
+	var input_dir = get_input_direction()
+	if input_dir != 0:
+		acceleration(input_direction)
+	else:
+		apply_friction()
 	velocity = move_and_slide(velocity)
+
+func apply_friction():
+	velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
+
+func acceleration(direction):
+	velocity = velocity.move_toward(SPEED * direction, ACCELERATION)
