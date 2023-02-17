@@ -8,6 +8,9 @@ var input_direction = Vector2()
 var velocity = Vector2()
 
 #onready var engine_sound = $EngineSound
+func _process(delta):
+	look_at(get_global_mouse_position())
+
 
 func get_input_direction():
 	input_direction = Vector2()
