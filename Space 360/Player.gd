@@ -29,7 +29,7 @@ func _physics_process(delta):
 		acceleration(input_direction)
 	else:
 		apply_friction()
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(velocity) * delta * 60
 	#movement_sound()
 
 func apply_friction():
