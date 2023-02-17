@@ -7,6 +7,8 @@ export (int) var FRICTION = 1
 var input_direction = Vector2()
 var velocity = Vector2()
 
+#onready var engine_sound = $EngineSound
+
 func get_input_direction():
 	input_direction = Vector2()
 	
@@ -28,9 +30,20 @@ func _physics_process(delta):
 	else:
 		apply_friction()
 	velocity = move_and_slide(velocity)
+	#movement_sound()
 
 func apply_friction():
 	velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
 
 func acceleration(direction):
 	velocity = velocity.move_toward(SPEED * direction, ACCELERATION)
+
+#func movement_sound():
+#	var engine_sound_play = false
+#	if not engine_sound.is_playing() and velocity != Vector2.ZERO:
+#		engine_sound.play()
+#		engine_sound_play = true
+#	while engine_sound_play:
+#		var engine_volume = engine_sound.set_volume_db(0)
+#		engine_volume += engine_volume + 1 
+
