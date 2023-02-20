@@ -1,10 +1,13 @@
 extends KinematicBody2D
 
+export (int) var HEALTH = 100
 export (int) var SPEED = 200
 export (int) var ACCELERATION = 10
 export (int) var FRICTION = 1
 export (int) var bullet_speed = 1000
 export var fire_rate = 20000
+
+onready var health_bar = $CanvasLayer/health_bar
 
 var input_direction = Vector2()
 var velocity = Vector2()
@@ -69,4 +72,14 @@ func acceleration(direction):
 #	while engine_sound_play:
 #		var engine_volume = engine_sound.set_volume_db(0)
 #		engine_volume += engine_volume + 1 
+
+
+
+func _on_player_area_area_entered(area):
+	if area.name == "asteroid_area":
+		HEALTH -= 20
+		area.get_parent().queue_free()
+		health_bar.value = HEALTH
+	if HEALTH == 0:
+		get_tree().reload_current_scene()
 

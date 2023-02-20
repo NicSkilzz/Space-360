@@ -14,9 +14,16 @@ animations = [ {
 } ]
 
 [node name="Enemy" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="asteroid_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="asteroid_area"]
 shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )

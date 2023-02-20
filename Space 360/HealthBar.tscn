@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://HealthBar.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 0, 0, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color( 0, 0, 0, 0 )
+
+[node name="HealthBar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="health_bar" type="ProgressBar" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 192.0
+margin_bottom = 28.0
+theme = ExtResource( 1 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 50.0
+percent_visible = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.967
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
