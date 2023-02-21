@@ -76,4 +76,9 @@ custom_styles/bg = SubResource( 4 )
 value = 100.0
 percent_visible = false
 
+[node name="movement_sound" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource( 3 )
+autoplay = true
+bus = "movement_bus"
+
 [connection signal="area_entered" from="player_area" to="." method="_on_player_area_area_entered"]

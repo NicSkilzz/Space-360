@@ -8,6 +8,9 @@ export (int) var bullet_speed = 1000
 export var fire_rate = 20000
 
 onready var health_bar = $CanvasLayer/health_bar
+onready var movement_bus = AudioServer.get_bus_index("movement_bus")
+onready var movement_sound = $CanvasLayer/movement_sound
+
 
 var input_direction = Vector2()
 var velocity = Vector2()
@@ -53,8 +56,10 @@ func _physics_process(delta):
 	var input_dir = get_input_direction()
 	if input_dir != 0:
 		acceleration(input_direction)
+		movement_sound_volume_play(velocity)
 	else:
 		apply_friction()
+		movement_sound_volume_stop()
 	velocity = move_and_slide(velocity) * delta * 60
 	#movement_sound()
 
@@ -64,15 +69,15 @@ func apply_friction():
 func acceleration(direction):
 	velocity = velocity.move_toward(SPEED * direction, ACCELERATION)
 
-#func movement_sound():
-#	var engine_sound_play = false
-#	if not engine_sound.is_playing() and velocity != Vector2.ZERO:
-#		engine_sound.play()
-#		engine_sound_play = true
-#	while engine_sound_play:
-#		var engine_volume = engine_sound.set_volume_db(0)
-#		engine_volume += engine_volume + 1 
+func movement_sound_volume_play(velocity):
+	var velocity_length_pre = pow(velocity.x, 2.0) + pow(velocity.y, 2.0) 
+	var velocity_length = pow(velocity_length_pre, 1/2.0)
+	var movement_volume = velocity_length / SPEED * 30 - 30
+	AudioServer.set_bus_mute(movement_bus, false)
+	AudioServer.set_bus_volume_db(movement_bus, movement_volume)
 
+func movement_sound_volume_stop():
+	AudioServer.set_bus_mute(movement_bus, true)
 
 
 func _on_player_area_area_entered(area):
