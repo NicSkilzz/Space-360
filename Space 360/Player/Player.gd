@@ -5,11 +5,12 @@ export (int) var SPEED = 200
 export (int) var ACCELERATION = 10
 export (int) var FRICTION = 1
 export (int) var bullet_speed = 1000
-export var fire_rate = 1
+export var fire_rate = 0.5
 
 onready var health_bar = $CanvasLayer/health_bar
 onready var movement_bus = AudioServer.get_bus_index("movement_bus")
 onready var movement_sound = $CanvasLayer/movement_sound
+onready var shooting_sound = $Shooting
 
 
 var input_direction = Vector2()
@@ -25,6 +26,7 @@ func _process(delta):
 	
 	
 	if Input.is_action_pressed("fire") && can_fire:
+		shooting_sound.play()
 		var bullet_instance = bullet.instance()
 		bullet_instance.position = $BulletPoint.get_global_position()
 		# Change the position to make the shooting start at the edge 

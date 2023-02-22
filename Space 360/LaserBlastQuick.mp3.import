@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/LaserBlastQuick.mp3-d0c1714ebdd359ce813302e812308f47.mp3str"
+
+[deps]
+
+source_file="res://LaserBlastQuick.mp3"
+dest_files=[ "res://.import/LaserBlastQuick.mp3-d0c1714ebdd359ce813302e812308f47.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
