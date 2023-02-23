@@ -39,7 +39,7 @@ func _process(delta):
 	
 
 
-func get_input_direction():
+func get_input_direction():#movement direction
 	input_direction = Vector2()
 	
 	if Input.is_action_pressed("ui_right"):
@@ -57,7 +57,7 @@ func _physics_process(delta):
 	var input_dir = get_input_direction()
 	if input_dir != 0:
 		acceleration(input_direction)
-		movement_sound_volume_play(velocity)
+		movement_sound_volume_play(velocity)#movement sound
 	else:
 		apply_friction()
 		movement_sound_volume_stop()
