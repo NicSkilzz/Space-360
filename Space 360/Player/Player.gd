@@ -35,7 +35,6 @@ func _process(delta):
 		can_fire = false
 		yield(get_tree().create_timer(fire_rate), "timeout")# waits set amount of time, can change the time by changing the value of fire_rate
 		can_fire = true
-	
 
 
 func get_input_direction():#movement direction
