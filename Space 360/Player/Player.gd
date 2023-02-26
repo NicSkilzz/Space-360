@@ -24,7 +24,6 @@ var can_fire = true
 func _process(delta):
 	look_at(get_global_mouse_position())
 	
-	
 	if Input.is_action_pressed("fire") && can_fire:
 		shooting_sound.play()
 		var bullet_instance = bullet.instance()
