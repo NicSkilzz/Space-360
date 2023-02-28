@@ -85,5 +85,5 @@ func _on_player_area_area_entered(area):
 		area.get_parent().queue_free()
 		health_bar.value = HEALTH
 	if HEALTH == 0:
-		get_tree().reload_current_scene()
+		get_tree().change_scene("res://Home Screen/death_screen.tscn")
 

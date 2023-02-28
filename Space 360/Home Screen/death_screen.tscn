@@ -5,13 +5,7 @@
 [ext_resource path="res://Home Screen/death_screen.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.196078, 0.0666667, 0.0666667, 1 )
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color( 1, 0, 0, 1 )
-border_blend = true
+bg_color = Color( 0.243137, 0.196078, 0.392157, 1 )
 
 [node name="death_screen" type="CanvasLayer"]
 script = ExtResource( 3 )
@@ -22,10 +16,8 @@ anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 502.0
-margin_bottom = 290.0
+margin_right = 512.0
+margin_bottom = 300.0
 custom_constants/margin_right = 40
 custom_constants/margin_top = 40
 custom_constants/margin_left = 40
@@ -34,12 +26,12 @@ custom_constants/margin_bottom = 40
 [node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 452.0
-margin_bottom = 240.0
+margin_right = 472.0
+margin_bottom = 260.0
 custom_constants/separation = 56
 
 [node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
-margin_right = 412.0
+margin_right = 432.0
 margin_bottom = 28.0
 custom_fonts/font = ExtResource( 2 )
 text = "Game Over!"
@@ -49,12 +41,12 @@ uppercase = true
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]
 margin_top = 84.0
-margin_right = 412.0
+margin_right = 432.0
 margin_bottom = 139.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer"]
-margin_left = 138.0
-margin_right = 274.0
+margin_left = 148.0
+margin_right = 284.0
 margin_bottom = 55.0
 custom_constants/separation = 15
 
@@ -70,3 +62,6 @@ margin_right = 136.0
 margin_bottom = 55.0
 custom_fonts/font = ExtResource( 1 )
 text = " Quit "
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/play_again_button" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
