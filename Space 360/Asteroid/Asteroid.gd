@@ -21,3 +21,6 @@ func _on_asteroid_area_area_entered(area):
 	if HEALTH == 0:
 		queue_free()
 		
+	if area.name == "DeathArea":
+		queue_free()
+		

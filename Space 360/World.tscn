@@ -27,30 +27,57 @@ position = Vector2( -24, -40 )
 [node name="Position2D" type="Position2D" parent="Node" groups=["spawn"]]
 position = Vector2( 24, -24 )
 scale = Vector2( 1.4779, 1.45859 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Position2D2" type="Position2D" parent="Node" groups=["spawn"]]
 position = Vector2( 208, -24 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Position2D3" type="Position2D" parent="Node" groups=["spawn"]]
 position = Vector2( 416, -24 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Position2D4" type="Position2D" parent="Node" groups=["spawn"]]
 position = Vector2( 488, 152 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Position2D5" type="Position2D" parent="Node" groups=["spawn"]]
 position = Vector2( 352, 312 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Position2D6" type="Position2D" parent="Node" groups=["spawn"]]
 position = Vector2( 208, 312 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Position2D7" type="Position2D" parent="Node" groups=["spawn"]]
 position = Vector2( 40, 320 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Position2D8" type="Position2D" parent="Node" groups=["spawn"]]
 position = Vector2( -72, 200 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Position2D9" type="Position2D" parent="Node" groups=["spawn"]]
 position = Vector2( -64, 88 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ShipSpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -58,6 +85,12 @@ autostart = true
 
 [node name="AsteroidSpawnRimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -40, -80 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 0, 24, 552, 16, 560, 424, -48, 416, -64, 24, 0, 24, 8, -48, -112, -48, -104, 472, 632, 472, 608, -56, 8, -48 )
 
 [connection signal="timeout" from="ShipSpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="AsteroidSpawnRimer" to="." method="_on_AsteroidSpawnRimer_timeout"]
