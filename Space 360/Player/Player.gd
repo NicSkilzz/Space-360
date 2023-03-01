@@ -86,4 +86,8 @@ func _on_player_area_area_entered(area):
 		health_bar.value = HEALTH
 	if HEALTH == 0:
 		get_tree().change_scene("res://Home Screen/death_screen.tscn")
+		
+	if area.name == "DeathArea":
+		get_tree().change_scene("res://Home Screen/death_screen.tscn")
+
 

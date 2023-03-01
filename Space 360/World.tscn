@@ -44,7 +44,7 @@ __meta__ = {
 }
 
 [node name="Position2D4" type="Position2D" parent="Node" groups=["spawn"]]
-position = Vector2( 488, 152 )
+position = Vector2( 536, 152 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -86,11 +86,11 @@ autostart = true
 [node name="AsteroidSpawnRimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DeathArea" type="Area2D" parent="."]
 position = Vector2( -40, -80 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PoolVector2Array( 0, 24, 552, 16, 560, 424, -48, 416, -64, 24, 0, 24, 8, -48, -112, -48, -104, 472, 632, 472, 608, -56, 8, -48 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathArea"]
+polygon = PoolVector2Array( 0, 24, 640, 16, 664, 432, -48, 416, -64, 24, 0, 24, 8, -48, -112, -48, -104, 472, 736, 480, 672, -48, 8, -48 )
 
 [connection signal="timeout" from="ShipSpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="AsteroidSpawnRimer" to="." method="_on_AsteroidSpawnRimer_timeout"]
