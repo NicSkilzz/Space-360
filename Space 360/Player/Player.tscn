@@ -38,7 +38,7 @@ script = ExtResource( 2 )
 [node name="player_area" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_area"]
-polygon = PoolVector2Array( -11, 0, 4, -8, 7, 0, 4, 8 )
+polygon = PoolVector2Array( -6, -6, 8, 0, -6, 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
