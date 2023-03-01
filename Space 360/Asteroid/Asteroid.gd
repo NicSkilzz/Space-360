@@ -1,15 +1,18 @@
-extends KinematicBody2D
+extends RigidBody2D
 
 export (int) var HEALTH = 1
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
-
-func impulse():
-	self.move_and_slide(Vector2(10,10), Vector2())
 
 func _on_asteroid_area_area_entered(area):
 	if area.name == "bullet_area":
@@ -18,4 +21,3 @@ func _on_asteroid_area_area_entered(area):
 	if HEALTH == 0:
 		queue_free()
 		
- 
