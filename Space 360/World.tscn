@@ -9,6 +9,7 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
+asteroid_speed_range = 40
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 208, 136 )

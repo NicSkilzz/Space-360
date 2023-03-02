@@ -6,8 +6,7 @@ var Asteroid = preload("res://Asteroid/Asteroid.tscn")
 var Enemy = preload("res://enemy_space_ship/enemy_space_ship.tscn")
 
 
-var rng = RandomNumberGenerator.new()
-var rng2 = RandomNumberGenerator.new()
+
 export (int) var asteroid_speed_range = 15
 
 
@@ -44,6 +43,8 @@ func _on_AsteroidSpawnRimer_timeout():
 	var asteroid = Asteroid.instance()
 	add_child(asteroid)
 	asteroid.position = $AsteroidSpawn.position
+	var rng = RandomNumberGenerator.new()
+	var rng2 = RandomNumberGenerator.new()
 	asteroid.apply_impulse(Vector2(), Vector2(rng.randf_range(-asteroid_speed_range, asteroid_speed_range),rng2.randf_range(-asteroid_speed_range, asteroid_speed_range)))
 	
 		#change Spawn position
