@@ -23,6 +23,7 @@ border_width_bottom = 6
 border_color = Color( 0, 0, 0, 0 )
 
 [node name="enemy_space_ship_rigid_body" type="RigidBody2D"]
+rotation = 1.5708
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -53,10 +54,11 @@ cast_to = Vector2( -100, 0 )
 [node name="shoot_cooldown" type="Timer" parent="."]
 
 [node name="enemy_health_bar" type="ProgressBar" parent="."]
-margin_left = -16.0
-margin_top = -19.0
-margin_right = 16.0
-margin_bottom = -5.0
+margin_left = -20.0
+margin_top = 16.0
+margin_right = 12.0
+margin_bottom = 30.0
+rect_rotation = -90.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 value = 100.0
