@@ -3,8 +3,7 @@ extends Node2D
 
 
 var Asteroid = preload("res://Asteroid/Asteroid.tscn")
-var Enemy = preload("res://enemy_space_ship/enemy_space_ship.tscn")
-
+var Enemy = preload("res://enemy_space_ship/enemy_space_ship_rigid_body.tscn")
 
 
 export (float) var asteroid_speed_range = 0.4
