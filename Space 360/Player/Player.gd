@@ -84,6 +84,10 @@ func _on_player_area_area_entered(area):
 		HEALTH -= 20
 		area.get_parent().queue_free()
 		health_bar.value = HEALTH
+	elif area.name == "enemy_bullet_area":
+		HEALTH -= 20
+		area.get_parent().queue_free()
+		health_bar.value = HEALTH
 	if HEALTH == 0:
 		get_tree().change_scene("res://Home Screen/death_screen.tscn")
 		

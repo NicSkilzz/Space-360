@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://enemy_space_ship/Sprite-1_Idle.png" type="Texture" id=1]
 [ext_resource path="res://enemy_space_ship/enemy_space_ship_rigid_body.gd" type="Script" id=2]
+[ext_resource path="res://LaserBlastQuick.mp3" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 5.0
@@ -52,6 +53,7 @@ enabled = true
 cast_to = Vector2( -100, 0 )
 
 [node name="shoot_cooldown" type="Timer" parent="."]
+autostart = true
 
 [node name="enemy_health_bar" type="ProgressBar" parent="."]
 margin_left = -20.0
@@ -71,4 +73,11 @@ percent_visible = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy_space_ship_area"]
 polygon = PoolVector2Array( -8, -8, -8, 0, -3, 6, 3, 6, 8, 0, 8, -7, 8, -8 )
 
+[node name="BulletPoint" type="Node2D" parent="."]
+position = Vector2( -2.86102e-05, -8 )
+
+[node name="Shooting" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="timeout" from="shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]
 [connection signal="area_entered" from="enemy_space_ship_area" to="." method="_on_enemy_space_ship_area_area_entered"]

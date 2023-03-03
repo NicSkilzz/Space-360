@@ -5,13 +5,20 @@ onready var enemy_sprite = $enemy_sprite
 onready var tween = $Tween
 onready var main_player = $"../Player"
 onready var collision_polygon_2d = $enemy_space_ship_area/CollisionPolygon2D
+onready var shoot_cooldown = $shoot_cooldown
+onready var enemy_health_bar = $enemy_health_bar
+onready var bullet_point = $BulletPoint
+onready var shooting_sound = $Shooting
 
+export(int) var COOLDOWN = 3
 export (int) var MAX_THRUST = 200
 export (int) var ENEMY_HEALTH = 100
 export (int) var MAX_SPEED = 100
 export (int) var ROTATIONSPEED = 2
+export(int) var BULLET_SPEED = 500
 
-onready var enemy_health_bar = $enemy_health_bar
+var bullet = preload("res://enemy_space_ship/enemy_bullet.tscn")
+var can_fire = false
 
 func _on_enemy_space_ship_area_area_entered(area):
 	if area.name == "bullet_area": 
@@ -69,3 +76,17 @@ func _integrate_forces(state):
 	# Clamp max speed
 	if linear_velocity.length() > MAX_SPEED:
 		linear_velocity = linear_velocity.normalized() * MAX_SPEED
+
+
+
+
+func _on_shoot_cooldown_timeout():
+	shooting_sound.play()
+	shoot_cooldown.wait_time = COOLDOWN * (1 + rand_range(-0.25, 0.25))
+	shoot_cooldown.start()
+	var bullet_instance = bullet.instance()
+	bullet_instance.position = bullet_point.get_global_position()
+	# Change the position to make the shooting start at the edge 
+	bullet_instance.rotation_degrees = rotation_degrees
+	bullet_instance.apply_impulse(Vector2(),Vector2(BULLET_SPEED, 0).rotated(rotation))
+	get_tree().get_root().add_child(bullet_instance)
