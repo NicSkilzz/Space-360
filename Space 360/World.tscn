@@ -14,9 +14,6 @@ asteroid_speed_range = 40
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 208, 136 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( 96, 152 )
-
 [node name="AsteroidSpawn" type="Node2D" parent="."]
 position = Vector2( 160, -40 )
 
@@ -92,6 +89,12 @@ position = Vector2( -40, -80 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathArea"]
 polygon = PoolVector2Array( 0, 24, 640, 16, 664, 432, -48, 416, -64, 24, 0, 24, 8, -48, -112, -48, -104, 472, 736, 480, 672, -48, 8, -48 )
+
+[node name="enemy_space_ship" parent="." instance=ExtResource( 2 )]
+position = Vector2( -32, 304 )
+
+[node name="enemy_space_ship2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 584, -32 )
 
 [connection signal="timeout" from="ShipSpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="AsteroidSpawnRimer" to="." method="_on_AsteroidSpawnRimer_timeout"]
