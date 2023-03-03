@@ -5,10 +5,10 @@ onready var enemy_sprite = $enemy_sprite
 onready var tween = $Tween
 onready var main_player = $"../Player"
 
-
 export (int) var MAX_THRUST = 200
 export (int) var ENEMY_HEALTH = 100
 export (int) var MAX_SPEED = 100
+export (int) var ROTATIONSPEED = 2
 
 onready var enemy_health_bar = $enemy_health_bar
 
@@ -49,11 +49,13 @@ func _integrate_forces(state):
 	var vector_to_player = (main_player.global_position - global_position).normalized()
 	
 	#Rotate turret
-	var start = enemy_sprite.rotation
-	var angle_to_target = Vector2(1, 0).rotated(start).angle_to(vector_to_player)
-	var end = start * angle_to_target
-	tween.interpolate_property(enemy_sprite, "rotation", start, end, 0.1, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
-	tween.start()
+	var angleTo = enemy_sprite.transform.x.angle_to(vector_to_player)
+	enemy_sprite.rotate(sign(angleTo) * min(delta * ROTATIONSPEED, abs(angleTo)))
+#var start = enemy_sprite.rotation
+#	var angle_to_target = Vector2(1, 0).rotated(start).angle_to(vector_to_player)
+#	var end = start * angle_to_target
+#	tween.interpolate_property(enemy_sprite, "rotation", start, end, 0.1, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+#	tween.start()
 
 	if distance_to_player > 100:
 		#Move towards player
