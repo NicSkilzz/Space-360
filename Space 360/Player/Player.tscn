@@ -29,7 +29,7 @@ border_width_right = 7
 border_width_bottom = 7
 border_color = Color( 0, 0, 0, 0 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
 script = ExtResource( 2 )
 
 [node name="player_area" type="Area2D" parent="."]

@@ -92,19 +92,24 @@ polygon = PoolVector2Array( 0, 24, 640, 16, 664, 432, -48, 416, -64, 24, 0, 24, 
 
 [node name="enemy_space_ship_rigid_body" parent="." instance=ExtResource( 3 )]
 position = Vector2( 312, 72 )
-COOLDOWN = 3
-MAX_THRUST = 200
-ENEMY_HEALTH = 100
-MAX_SPEED = 100
-ROTATIONSPEED = 2
 
 [node name="enemy_space_ship" parent="." instance=ExtResource( 3 )]
 position = Vector2( 88, 176 )
-COOLDOWN = 3
-MAX_THRUST = 200
-ENEMY_HEALTH = 100
-MAX_SPEED = 100
-ROTATIONSPEED = 2
+
+[node name="enemy_space_ship2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 248, 232 )
+
+[node name="enemy_space_ship3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 376, 240 )
+
+[node name="enemy_space_ship4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 80, 72 )
+
+[node name="enemy_space_ship5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 176, 72 )
+
+[node name="enemy_space_ship6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 392, 136 )
 
 [connection signal="timeout" from="ShipSpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="AsteroidSpawnRimer" to="." method="_on_AsteroidSpawnRimer_timeout"]

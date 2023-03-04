@@ -6,12 +6,14 @@ onready var tween = $Tween
 onready var main_player = $"../Player"
 onready var collision_polygon_2d = $enemy_space_ship_area/CollisionPolygon2D
 onready var shoot_cooldown = $shoot_cooldown
-onready var enemy_health_bar = $enemy_health_bar
 onready var bullet_point = $BulletPoint
 onready var shooting_sound = $Shooting
+onready var enemy_health_bar = $enemy_health_bar
+onready var bullet_spawn_point = $enemy_sprite/bullet_spawn_point
+
 
 export(int) var COOLDOWN = 3
-export (int) var MAX_THRUST = 200
+export (int) var MAX_THRUST = 300
 export (int) var ENEMY_HEALTH = 100
 export (int) var MAX_SPEED = 100
 export (int) var ROTATIONSPEED = 2
@@ -66,10 +68,10 @@ func _integrate_forces(state):
 #	tween.interpolate_property(enemy_sprite, "rotation", start, end, 0.1, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 #	tween.start()
 
-	if distance_to_player > 100:
+	if distance_to_player > 100 and closest_collision == null:
 		#Move towards player
 		linear_velocity += vector_to_player * MAX_THRUST * delta
-	else:
+	elif distance_to_player <= 100 and closest_collision == null:
 		#Move away from player
 		linear_velocity += -vector_to_player * MAX_THRUST * delta
 	
@@ -77,16 +79,16 @@ func _integrate_forces(state):
 	if linear_velocity.length() > MAX_SPEED:
 		linear_velocity = linear_velocity.normalized() * MAX_SPEED
 
-
-
+func shoot():
+	shooting_sound.play()
+	var bullet_instance = bullet.instance()
+	bullet_instance.position = bullet_spawn_point.global_position
+	# Change the position to make the shooting start at the edge 
+	bullet_instance.rotation_degrees = enemy_sprite.rotation_degrees
+	bullet_instance.apply_impulse(Vector2(),Vector2(BULLET_SPEED, 0).rotated(rotation_degrees))
+	get_tree().get_root().add_child(bullet_instance)
 
 func _on_shoot_cooldown_timeout():
-	shooting_sound.play()
 	shoot_cooldown.wait_time = COOLDOWN * (1 + rand_range(-0.25, 0.25))
 	shoot_cooldown.start()
-	var bullet_instance = bullet.instance()
-	bullet_instance.position = bullet_point.get_global_position()
-	# Change the position to make the shooting start at the edge 
-	bullet_instance.rotation_degrees = rotation_degrees
-	bullet_instance.apply_impulse(Vector2(),Vector2(BULLET_SPEED, 0).rotated(rotation))
-	get_tree().get_root().add_child(bullet_instance)
+	shoot()
