@@ -10,6 +10,9 @@ onready var bullet_point = $BulletPoint
 onready var shooting_sound = $Shooting
 onready var bullet_spawn_point = $enemy_sprite/bullet_spawn_point
 onready var enemy_health_bar = $enemy_health_bar
+onready var shooting_direction = $shooting_direction
+
+
 
 
 export(int) var COOLDOWN = 3
@@ -59,10 +62,11 @@ func _integrate_forces(state):
 	var vector_to_player = (main_player.global_position - global_position).normalized()
 	
 	#Rotate turret
-	var angleTo = enemy_sprite.transform.x.angle_to(vector_to_player)
-	enemy_sprite.rotate(sign(angleTo) * min(delta * ROTATIONSPEED, abs(angleTo)))
-	collision_polygon_2d.rotate(sign(angleTo) * min(delta * ROTATIONSPEED, abs(angleTo)))
-
+#	var angleTo = enemy_sprite.transform.x.angle_to(vector_to_player)
+#	enemy_sprite.rotate(sign(angleTo) * min(delta * ROTATIONSPEED, abs(angleTo)))
+#	collision_polygon_2d.rotate(sign(angleTo) * min(delta * ROTATIONSPEED, abs(angleTo)))
+	look_at(main_player.global_position)
+	
 	if distance_to_player > 100 and closest_collision == null:
 		#Move towards player
 		linear_velocity += vector_to_player * MAX_THRUST * delta
@@ -77,10 +81,10 @@ func _integrate_forces(state):
 func shoot():
 	shooting_sound.play()
 	var bullet_instance = bullet.instance()
-	bullet_instance.position = bullet_spawn_point.global_position
-	# Change the position to make the shooting start at the edge 
-	bullet_instance.rotation_degrees = enemy_sprite.rotation_degrees
-	bullet_instance.apply_impulse(Vector2(),Vector2(BULLET_SPEED, 0).rotated(rotation_degrees))
+	bullet_instance.position = bullet_spawn_point.global_position 
+	bullet_instance.global_rotation = shooting_direction.global_rotation + 1.5708
+	var shooting_rotated = shooting_direction.global_rotation + 1.5708
+	bullet_instance.apply_impulse(Vector2(),Vector2(BULLET_SPEED, 0).rotated(shooting_rotated))
 	get_tree().get_root().add_child(bullet_instance)
 
 func _on_shoot_cooldown_timeout():
