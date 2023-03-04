@@ -58,8 +58,6 @@ cast_to = Vector2( -75, 0 )
 [node name="shoot_cooldown" type="Timer" parent="."]
 autostart = true
 
-[node name="Tween" type="Tween" parent="."]
-
 [node name="enemy_space_ship_area" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy_space_ship_area"]

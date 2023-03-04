@@ -62,11 +62,6 @@ func _integrate_forces(state):
 	var angleTo = enemy_sprite.transform.x.angle_to(vector_to_player)
 	enemy_sprite.rotate(sign(angleTo) * min(delta * ROTATIONSPEED, abs(angleTo)))
 	collision_polygon_2d.rotate(sign(angleTo) * min(delta * ROTATIONSPEED, abs(angleTo)))
-#var start = enemy_sprite.rotation
-#	var angle_to_target = Vector2(1, 0).rotated(start).angle_to(vector_to_player)
-#	var end = start * angle_to_target
-#	tween.interpolate_property(enemy_sprite, "rotation", start, end, 0.1, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
-#	tween.start()
 
 	if distance_to_player > 100 and closest_collision == null:
 		#Move towards player
