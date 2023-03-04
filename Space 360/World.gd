@@ -7,7 +7,7 @@ var Enemy = preload("res://enemy_space_ship/enemy_space_ship_rigid_body.tscn")
 
 
 
-export (float) var asteroid_speed_range = 0.4
+export (float) var asteroid_speed_range = 0.1
 
 
 # Called when the node enters the scene tree for the first time.
@@ -42,7 +42,9 @@ func _on_SpawnTimer_timeout():
 func _on_AsteroidSpawnRimer_timeout():
 		#change Spawn position
 	var nodes = get_tree().get_nodes_in_group("spawn")# selec the spawn group
-	var node = nodes[randi() % nodes.size()]# chose a random node in the spawn group
+	var rng3 = RandomNumberGenerator.new()
+	rng3.randomize()
+	var node = nodes[rng3.randf_range(0.0, nodes.size())]# chose a random node in the spawn group
 	
 	# Set Spawn position to new position
 	var position = node.position
@@ -52,7 +54,9 @@ func _on_AsteroidSpawnRimer_timeout():
 	add_child(asteroid)
 	asteroid.position = $AsteroidSpawn.position
 	var rng = RandomNumberGenerator.new()
+	rng.randomize()
 	var rng2 = RandomNumberGenerator.new()
+	rng2.randomize()
 	asteroid.add_force(Vector2(), Vector2(rng.randf_range(-asteroid_speed_range, asteroid_speed_range),rng2.randf_range(-asteroid_speed_range, asteroid_speed_range)))
 	
 	
