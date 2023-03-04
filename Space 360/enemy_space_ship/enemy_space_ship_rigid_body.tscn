@@ -65,17 +65,15 @@ autostart = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy_space_ship_area"]
 polygon = PoolVector2Array( -8, -8, -8, 0, -3, 6, 3, 6, 8, 0, 8, -7, 8, -8 )
 
-[node name="BulletPoint" type="Node2D" parent="."]
-position = Vector2( -2.86102e-05, -8 )
-
 [node name="Shooting" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
 [node name="enemy_health_bar" type="ProgressBar" parent="."]
-margin_left = -18.9999
-margin_top = 16.0001
-margin_right = 13.0001
-margin_bottom = 30.0001
+visible = false
+margin_left = -18.0
+margin_top = 12.0001
+margin_right = 8.00004
+margin_bottom = 26.0001
 rect_rotation = -90.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )

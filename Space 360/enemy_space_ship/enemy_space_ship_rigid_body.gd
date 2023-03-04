@@ -8,15 +8,15 @@ onready var collision_polygon_2d = $enemy_space_ship_area/CollisionPolygon2D
 onready var shoot_cooldown = $shoot_cooldown
 onready var bullet_point = $BulletPoint
 onready var shooting_sound = $Shooting
-onready var enemy_health_bar = $enemy_health_bar
 onready var bullet_spawn_point = $enemy_sprite/bullet_spawn_point
+onready var enemy_health_bar = $enemy_health_bar
 
 
 export(int) var COOLDOWN = 3
 export (int) var MAX_THRUST = 300
 export (int) var ENEMY_HEALTH = 100
 export (int) var MAX_SPEED = 100
-export (int) var ROTATIONSPEED = 2
+export (int) var ROTATIONSPEED = 3
 export(int) var BULLET_SPEED = 500
 
 var bullet = preload("res://enemy_space_ship/enemy_bullet.tscn")
@@ -92,3 +92,4 @@ func _on_shoot_cooldown_timeout():
 	shoot_cooldown.wait_time = COOLDOWN * (1 + rand_range(-0.25, 0.25))
 	shoot_cooldown.start()
 	shoot()
+
