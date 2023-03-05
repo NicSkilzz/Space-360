@@ -35,7 +35,6 @@ func _on_enemy_space_ship_area_area_entered(area):
 		area.get_parent().queue_free()
 		enemy_health_bar.value = ENEMY_HEALTH
 	if ENEMY_HEALTH == 0:
-		
 		if randi()%REPAIR_KIT_CHANCE+1 == 1:
 			var repair_instance = repair_item.instance()
 			repair_instance.position = enemy_sprite.global_position
