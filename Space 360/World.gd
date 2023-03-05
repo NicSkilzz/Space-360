@@ -23,7 +23,7 @@ func _ready():
 func _on_SpawnTimer_timeout():
 	
 	#change Spawn position
-	var nodes = get_tree().get_nodes_in_group("spawn")# selec the spawn group
+	var nodes = get_tree().get_nodes_in_group("spawn")# select the spawn group
 	var rng3 = RandomNumberGenerator.new()
 	rng3.randomize()
 	var node = nodes[rng3.randf_range(0.0, nodes.size())]# chose a random node in the spawn group
@@ -42,7 +42,6 @@ func _on_SpawnTimer_timeout():
 	var rngT = RandomNumberGenerator.new()
 	rngT.randomize()
 	$ShipSpawnTimer.wait_time = rngT.randf_range(2,6) # select random time between 5s and 10s
-	
 
 
 func _on_AsteroidSpawnRimer_timeout():
@@ -69,6 +68,4 @@ func _on_AsteroidSpawnRimer_timeout():
 	var rngT = RandomNumberGenerator.new()
 	rngT.randomize()
 	$AsteroidSpawnRimer.wait_time = rngT.randf_range(2,6) # select random time between 5s and 10s
-	
-	
-	
+
