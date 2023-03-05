@@ -31,16 +31,10 @@ func _on_SpawnTimer_timeout():
 	rng3.randomize()
 	var node = nodes[rng3.randf_range(0.0, nodes.size())]# chose a random node in the spawn group
 	
-	
-	
 	var enemy = Enemy.instance()
 	add_child(enemy)
 	enemy.position = node.position
 	
-	
-	
-	var rngT = RandomNumberGenerator.new()
-	rngT.randomize()
 	ship_timer.wait_time = 1/((0.001 * time_elapsed) + 0.1) # select time
 
 func _on_AsteroidSpawnRimer_timeout():
@@ -61,8 +55,6 @@ func _on_AsteroidSpawnRimer_timeout():
 	rng2.randomize()
 	asteroid.add_force(Vector2(), Vector2(rng.randf_range(-asteroid_speed_range, asteroid_speed_range),rng2.randf_range(-asteroid_speed_range, asteroid_speed_range)))
 	
-	
-	var rngT = RandomNumberGenerator.new()
-	rngT.randomize()
+
 	asteroid_timer.wait_time = 1/((0.001 * time_elapsed) + 0.1) # select time
 
