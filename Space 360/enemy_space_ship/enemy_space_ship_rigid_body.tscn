@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://enemy_space_ship/Sprite-1_Idle.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/enemy_sprite_2.png" type="Texture" id=1]
 [ext_resource path="res://enemy_space_ship/enemy_space_ship_rigid_body.gd" type="Script" id=2]
 [ext_resource path="res://LaserBlastQuick.mp3" type="AudioStream" id=3]
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://thrusterFire_001.ogg" type="AudioStream" id=3]
 [ext_resource path="res://LaserBlastQuick.mp3" type="AudioStream" id=5]
-[ext_resource path="res://Cool space ship.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Cool space ship.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {

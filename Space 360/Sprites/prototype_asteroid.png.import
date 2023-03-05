@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cool space ship.png-1ac5f94f8d4317ae52c5b08708d3a40e.stex"
+path="res://.import/prototype_asteroid.png-9a0e17e96377e3e43002eeb2adcc8d44.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cool space ship.png"
-dest_files=[ "res://.import/Cool space ship.png-1ac5f94f8d4317ae52c5b08708d3a40e.stex" ]
+source_file="res://Sprites/prototype_asteroid.png"
+dest_files=[ "res://.import/prototype_asteroid.png-9a0e17e96377e3e43002eeb2adcc8d44.stex" ]
 
 [params]
 

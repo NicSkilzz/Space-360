@@ -2,11 +2,9 @@ extends RigidBody2D
 
 onready var rays = $rays
 onready var enemy_sprite = $enemy_sprite
-onready var tween = $Tween
 onready var main_player = $"../Player"
 onready var collision_polygon_2d = $enemy_space_ship_area/CollisionPolygon2D
 onready var shoot_cooldown = $shoot_cooldown
-onready var bullet_point = $BulletPoint
 onready var shooting_sound = $Shooting
 onready var bullet_spawn_point = $enemy_sprite/bullet_spawn_point
 onready var enemy_health_bar = $enemy_health_bar
