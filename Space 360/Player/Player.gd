@@ -91,6 +91,14 @@ func _on_player_area_area_entered(area):
 	if area.name == "DeathArea":
 # warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Home Screen/death_screen.tscn")
+	if area.name == "repair_item_area" && HEALTH <= 80:
+		HEALTH += 20
+		area.get_parent().queue_free()
+		health_bar.value = HEALTH
+	elif area.name == "repair_item_area":
+		HEALTH = 100
+		area.get_parent().queue_free()
+		health_bar.value = HEALTH
 
 func shoot():
 	shooting_sound.play()

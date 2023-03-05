@@ -17,9 +17,12 @@ export (int) var MAX_THRUST = 300
 export (int) var ENEMY_HEALTH = 100
 export (int) var MAX_SPEED = 100
 export (int) var ROTATIONSPEED = 3
-export(int) var BULLET_SPEED = 500
+export (int) var BULLET_SPEED = 500
+export (int) var REPAIR_KIT_CHANCE = 10
+
 
 var bullet = preload("res://enemy_space_ship/enemy_bullet.tscn")
+var repair_item = preload("res://Items/RepairItem.tscn")
 var can_fire = false
 
 func _on_enemy_space_ship_area_area_entered(area):
@@ -32,6 +35,11 @@ func _on_enemy_space_ship_area_area_entered(area):
 		area.get_parent().queue_free()
 		enemy_health_bar.value = ENEMY_HEALTH
 	if ENEMY_HEALTH == 0:
+		
+		if randi()%REPAIR_KIT_CHANCE+1 == 1:
+			var repair_instance = repair_item.instance()
+			repair_instance.position = enemy_sprite.global_position
+			get_tree().get_root().add_child(repair_instance)
 		queue_free()
 
 

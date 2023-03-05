@@ -50,12 +50,6 @@ __meta__ = {
 [node name="EngineSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
-[node name="BulletPoint" type="Node2D" parent="."]
-position = Vector2( 10, 0.5 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="health_bar" type="ProgressBar" parent="CanvasLayer"]
@@ -78,5 +72,11 @@ stream = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -6, -6, 8, 0, -6, 6 )
+
+[node name="BulletPoint" type="Position2D" parent="."]
+position = Vector2( 8, -0.5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="area_entered" from="player_area" to="." method="_on_player_area_area_entered"]

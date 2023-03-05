@@ -34,7 +34,7 @@ __meta__ = {
 }
 
 [node name="Position2D4" type="Position2D" parent="Node" groups=["spawn"]]
-position = Vector2( 536, 152 )
+position = Vector2( 552, 152 )
 __meta__ = {
 "_edit_lock_": true
 }
