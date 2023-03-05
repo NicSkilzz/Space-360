@@ -1,16 +1,19 @@
 extends KinematicBody2D
 
-export (int) var HEALTH = 100
-export (int) var SPEED = 200
-export (int) var ACCELERATION = 10
-export (int) var FRICTION = 1
-export (int) var bullet_speed = 1000
-export var fire_rate = 0.5
 
 onready var health_bar = $CanvasLayer/health_bar
 onready var movement_bus = AudioServer.get_bus_index("movement_bus")
 onready var movement_sound = $CanvasLayer/movement_sound
 onready var shooting_sound = $Shooting
+onready var bullet_point = $BulletPoint
+
+export (int) var HEALTH = 100
+export (int) var SPEED = 200
+export (int) var ACCELERATION = 10
+export (int) var FRICTION = 1
+export (int) var BULLET_SPEED = 1000
+export (float) var FIRE_RATE = 0.5
+
 
 
 var input_direction = Vector2()
@@ -21,19 +24,13 @@ var can_fire = true
 
 
 #onready var engine_sound = $EngineSound
-func _process(delta):
+func _process(_delta):
 	look_at(get_global_mouse_position())
 	
 	if Input.is_action_pressed("fire") && can_fire:
-		shooting_sound.play()
-		var bullet_instance = bullet.instance()
-		bullet_instance.position = $BulletPoint.get_global_position()
-		# Change the position to make the shooting start at the edge 
-		bullet_instance.rotation_degrees = rotation_degrees
-		bullet_instance.apply_impulse(Vector2(),Vector2(bullet_speed, 0).rotated(rotation))
-		get_tree().get_root().add_child(bullet_instance)
+		shoot()
 		can_fire = false
-		yield(get_tree().create_timer(fire_rate), "timeout")# waits set amount of time, can change the time by changing the value of fire_rate
+		yield(get_tree().create_timer(FIRE_RATE), "timeout")# waits set amount of time, can change the time by changing the value of fire_rate
 		can_fire = true
 
 
@@ -68,8 +65,8 @@ func apply_friction():
 func acceleration(direction):
 	velocity = velocity.move_toward(SPEED * direction, ACCELERATION)
 
-func movement_sound_volume_play(velocity):
-	var velocity_length_pre = pow(velocity.x, 2.0) + pow(velocity.y, 2.0) 
+func movement_sound_volume_play(sound_velocity):
+	var velocity_length_pre = pow(sound_velocity.x, 2.0) + pow(sound_velocity.y, 2.0) 
 	var velocity_length = pow(velocity_length_pre, 1/2.0)
 	var movement_volume = velocity_length / SPEED * 30 - 40
 	AudioServer.set_bus_mute(movement_bus, false)
@@ -77,7 +74,6 @@ func movement_sound_volume_play(velocity):
 
 func movement_sound_volume_stop():
 	AudioServer.set_bus_mute(movement_bus, true)
-
 
 func _on_player_area_area_entered(area):
 	if area.name == "asteroid_area":
@@ -89,9 +85,19 @@ func _on_player_area_area_entered(area):
 		area.get_parent().queue_free()
 		health_bar.value = HEALTH
 	if HEALTH == 0:
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Home Screen/death_screen.tscn")
 		
 	if area.name == "DeathArea":
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Home Screen/death_screen.tscn")
 
+func shoot():
+	shooting_sound.play()
+	var bullet_instance = bullet.instance()
+	bullet_instance.position = bullet_point.get_global_position()
+	# Change the position to make the shooting start at the edge 
+	bullet_instance.rotation_degrees = rotation_degrees
+	bullet_instance.apply_impulse(Vector2(),Vector2(BULLET_SPEED, 0).rotated(rotation))
+	get_tree().get_root().add_child(bullet_instance)
 

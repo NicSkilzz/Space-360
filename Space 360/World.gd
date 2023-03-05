@@ -4,6 +4,8 @@ extends Node2D
 
 var Asteroid = preload("res://Asteroid/Asteroid.tscn")
 var Enemy = preload("res://enemy_space_ship/enemy_space_ship_rigid_body.tscn")
+onready var asteroid_timer = $AsteroidSpawnRimer
+onready var ship_timer = $ShipSpawnTimer
 
 
 
@@ -28,21 +30,17 @@ func _on_SpawnTimer_timeout():
 	rng3.randomize()
 	var node = nodes[rng3.randf_range(0.0, nodes.size())]# chose a random node in the spawn group
 	
-	# Set Spawn position to new position
-	var position = node.position
-	$ShipSpawn.position = position
 	
 	
 	var enemy = Enemy.instance()
 	add_child(enemy)
-	enemy.position = $ShipSpawn.position
+	enemy.position = node.position
 	
 	
 	
 	var rngT = RandomNumberGenerator.new()
 	rngT.randomize()
-	$ShipSpawnTimer.wait_time = rngT.randf_range(2,6) # select random time between 5s and 10s
-
+	ship_timer.wait_time = rngT.randf_range(2,6) # select random time between 5s and 10s
 
 func _on_AsteroidSpawnRimer_timeout():
 		#change Spawn position
@@ -51,13 +49,11 @@ func _on_AsteroidSpawnRimer_timeout():
 	rng3.randomize()
 	var node = nodes[rng3.randf_range(0.0, nodes.size())]# chose a random node in the spawn group
 	
-	# Set Spawn position to new position
-	var position = node.position
-	$AsteroidSpawn.position = position
+	
 	
 	var asteroid = Asteroid.instance()
 	add_child(asteroid)
-	asteroid.position = $AsteroidSpawn.position
+	asteroid.position = node.position
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var rng2 = RandomNumberGenerator.new()
@@ -67,5 +63,5 @@ func _on_AsteroidSpawnRimer_timeout():
 	
 	var rngT = RandomNumberGenerator.new()
 	rngT.randomize()
-	$AsteroidSpawnRimer.wait_time = rngT.randf_range(2,6) # select random time between 5s and 10s
+	asteroid_timer.wait_time = rngT.randf_range(2,6) # select random time between 5s and 10s
 

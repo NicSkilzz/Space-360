@@ -12,12 +12,6 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 208, 136 )
 
-[node name="AsteroidSpawn" type="Node2D" parent="."]
-position = Vector2( 160, -40 )
-
-[node name="ShipSpawn" type="Node2D" parent="."]
-position = Vector2( -24, -40 )
-
 [node name="Node" type="Node" parent="."]
 
 [node name="Position2D" type="Position2D" parent="Node" groups=["spawn"]]
