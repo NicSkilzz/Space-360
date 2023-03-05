@@ -11,6 +11,7 @@ onready var ship_timer = $ShipSpawnTimer
 
 export (float) var asteroid_speed_range = 0.1
 
+var time_elapsed = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,8 +19,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	time_elapsed += delta
 
 
 func _on_SpawnTimer_timeout():
@@ -40,7 +41,7 @@ func _on_SpawnTimer_timeout():
 	
 	var rngT = RandomNumberGenerator.new()
 	rngT.randomize()
-	ship_timer.wait_time = rngT.randf_range(2,6) # select random time between 5s and 10s
+	ship_timer.wait_time = 1/((0.001 * time_elapsed) + 0.1) # select time
 
 func _on_AsteroidSpawnRimer_timeout():
 		#change Spawn position
@@ -63,5 +64,5 @@ func _on_AsteroidSpawnRimer_timeout():
 	
 	var rngT = RandomNumberGenerator.new()
 	rngT.randomize()
-	asteroid_timer.wait_time = rngT.randf_range(2,6) # select random time between 5s and 10s
+	asteroid_timer.wait_time = 1/((0.001 * time_elapsed) + 0.1) # select time
 
