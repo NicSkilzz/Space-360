@@ -86,7 +86,7 @@ autostart = true
 position = Vector2( -40, -80 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathArea"]
-polygon = PoolVector2Array( 0, 24, 640, 16, 664, 432, -48, 416, -64, 24, 0, 24, 8, -48, -112, -48, -104, 472, 736, 480, 672, -48, 8, -48 )
+polygon = PoolVector2Array( 616, 16, 616, 424, -48, 424, -48, 16, 32, 16, 8, -16, -96, -16, -96, 456, 672, 456, 672, -16, 8, -16, 32, 16 )
 
 [connection signal="timeout" from="ShipSpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="AsteroidSpawnRimer" to="." method="_on_AsteroidSpawnRimer_timeout"]
