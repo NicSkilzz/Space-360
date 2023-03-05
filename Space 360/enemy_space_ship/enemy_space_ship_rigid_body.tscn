@@ -69,9 +69,9 @@ stream = ExtResource( 3 )
 
 [node name="enemy_health_bar" type="ProgressBar" parent="."]
 margin_left = -18.0
-margin_top = 12.0001
+margin_top = 13.0
 margin_right = 8.00004
-margin_bottom = 26.0001
+margin_bottom = 27.0
 rect_rotation = -90.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
