@@ -5,11 +5,10 @@ onready var enemy_sprite = $enemy_sprite
 onready var main_player = $"../Player"
 onready var collision_polygon_2d = $enemy_space_ship_area/CollisionPolygon2D
 onready var shoot_cooldown = $shoot_cooldown
-onready var shooting_sound = $Shooting
+onready var enemy_shooting_sound = $enemy_shooting_sound
 onready var bullet_spawn_point = $enemy_sprite/bullet_spawn_point
 onready var enemy_health_bar = $enemy_health_bar
 onready var shooting_direction = $shooting_direction
-
 
 export (int) var COOLDOWN = 3
 export (int) var MAX_THRUST = 300
@@ -88,7 +87,7 @@ func _integrate_forces(state):
 		linear_velocity = linear_velocity.normalized() * MAX_SPEED
 
 func shoot():
-	shooting_sound.play()
+	enemy_shooting_sound.play()
 	var bullet_instance = bullet.instance()
 	bullet_instance.position = bullet_spawn_point.global_position 
 	bullet_instance.global_rotation = shooting_direction.global_rotation + 1.5708
