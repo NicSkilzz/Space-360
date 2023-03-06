@@ -2,15 +2,8 @@
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Home Screen/ghost_clan_default.tres" type="DynamicFont" id=2]
+[ext_resource path="res://current_score.gd" type="Script" id=3]
 [ext_resource path="res://World.gd" type="Script" id=4]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Label
-
-
-func _process(delta):
-	self.text = str(World.score)
-"
 
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
@@ -102,7 +95,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "0"
 align = 1
 valign = 1
-script = SubResource( 1 )
+script = ExtResource( 3 )
 
 [connection signal="timeout" from="ShipSpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="AsteroidSpawnRimer" to="." method="_on_AsteroidSpawnRimer_timeout"]

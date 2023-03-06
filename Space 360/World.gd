@@ -8,7 +8,6 @@ onready var asteroid_timer = $AsteroidSpawnRimer
 onready var ship_timer = $ShipSpawnTimer
 onready var current_score = $score_board/current_score
 
-
 export (int) var score = 0
 export (float) var asteroid_speed_range = 0.1
 
@@ -22,7 +21,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time_elapsed += delta
-	current_score.text = str(score)
 
 
 func _on_SpawnTimer_timeout():

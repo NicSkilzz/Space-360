@@ -11,7 +11,6 @@ onready var enemy_health_bar = $enemy_health_bar
 onready var shooting_direction = $shooting_direction
 
 
-
 export (int) var COOLDOWN = 3
 export (int) var MAX_THRUST = 300
 export (int) var ENEMY_HEALTH = 100
@@ -24,6 +23,7 @@ export (int) var REPAIR_KIT_CHANCE = 10
 var bullet = preload("res://enemy_space_ship/enemy_bullet.tscn")
 var repair_item = preload("res://Items/RepairItem.tscn")
 var can_fire = false
+var added_points = 0 
 
 func _on_enemy_space_ship_area_area_entered(area):
 	if area.name == "bullet_area": 
@@ -35,11 +35,11 @@ func _on_enemy_space_ship_area_area_entered(area):
 		area.get_parent().queue_free()
 		enemy_health_bar.value = ENEMY_HEALTH
 	if ENEMY_HEALTH == 0:
+		GlobalWorld.score += 10
 		if randi()%REPAIR_KIT_CHANCE+1 == 1:
 			var repair_instance = repair_item.instance()
 			repair_instance.position = enemy_sprite.global_position
 			get_tree().get_root().add_child(repair_instance)
-			World.score += 10
 		queue_free()
 
 
@@ -100,4 +100,3 @@ func _on_shoot_cooldown_timeout():
 	shoot_cooldown.wait_time = COOLDOWN * (1 + rand_range(-0.25, 0.25))
 	shoot_cooldown.start()
 	shoot()
-
