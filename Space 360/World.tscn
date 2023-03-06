@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Home Screen/ghost_clan_default.tres" type="DynamicFont" id=2]
 [ext_resource path="res://World.gd" type="Script" id=4]
 
 [node name="World" type="Node2D"]
@@ -81,6 +82,18 @@ position = Vector2( -40, -80 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathArea"]
 polygon = PoolVector2Array( 616, 16, 616, 424, -48, 424, -48, 16, 32, 16, 8, -16, -96, -16, -96, 456, 672, 456, 672, -16, 8, -16, 32, 16 )
+
+[node name="score_board" type="CanvasLayer" parent="."]
+
+[node name="current_score" type="Label" parent="score_board"]
+margin_left = 224.0
+margin_top = 16.0
+margin_right = 288.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+align = 1
+valign = 1
 
 [connection signal="timeout" from="ShipSpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="AsteroidSpawnRimer" to="." method="_on_AsteroidSpawnRimer_timeout"]
