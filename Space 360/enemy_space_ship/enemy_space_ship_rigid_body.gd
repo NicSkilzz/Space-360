@@ -39,6 +39,7 @@ func _on_enemy_space_ship_area_area_entered(area):
 			var repair_instance = repair_item.instance()
 			repair_instance.position = enemy_sprite.global_position
 			get_tree().get_root().add_child(repair_instance)
+			World.score += 10
 		queue_free()
 
 
