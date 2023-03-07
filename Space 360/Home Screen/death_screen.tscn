@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Home Screen/ghost_clan_default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Home Screen/ghost_clan_title.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Home Screen/death_screen.gd" type="Script" id=3]
 [ext_resource path="res://Home Screen/your_score.gd" type="Script" id=4]
+[ext_resource path="res://background prototype 640x360.png" type="Texture" id=5]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.243137, 0.196078, 0.392157, 1 )
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 640, 360 )
 
 [node name="death_screen" type="CanvasLayer"]
 script = ExtResource( 3 )
@@ -26,7 +28,7 @@ custom_constants/margin_bottom = 40
 
 [node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 margin_left = 40.0
-margin_top = 40.0
+margin_top = 50.0
 margin_right = 600.0
 margin_bottom = 320.0
 custom_constants/separation = 40
@@ -34,7 +36,7 @@ custom_constants/separation = 40
 [node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
 margin_right = 560.0
 margin_bottom = 28.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.87451, 0.027451, 0.447059, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Game Over!"
 align = 1
@@ -44,8 +46,8 @@ uppercase = true
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows"]
 margin_top = 68.0
 margin_right = 560.0
-margin_bottom = 226.0
-custom_constants/separation = 60
+margin_bottom = 229.0
+custom_constants/separation = 63
 
 [node name="CenterContainer2" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows/VBoxContainer"]
 margin_right = 560.0
@@ -78,9 +80,9 @@ valign = 1
 uppercase = true
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows/VBoxContainer"]
-margin_top = 103.0
+margin_top = 106.0
 margin_right = 560.0
-margin_bottom = 158.0
+margin_bottom = 161.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/VBoxContainer/CenterContainer"]
 margin_left = 212.0
