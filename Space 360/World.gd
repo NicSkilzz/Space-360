@@ -9,13 +9,16 @@ onready var ship_timer = $ShipSpawnTimer
 onready var current_score = $score_board/current_score
 
 export (int) var score = 0
+export (int) var end_score = 0
 export (float) var asteroid_speed_range = 0.1
+export (int) var highscore = 0
+const highscore_filepath = "res://highscore.data"
 
 var time_elapsed = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	load_highscore()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -58,3 +61,23 @@ func _on_AsteroidSpawnRimer_timeout():
 
 	asteroid_timer.wait_time = 1/((0.001 * time_elapsed) + 0.1) # select time
 
+func load_highscore():
+	var file = File.new()
+	if not file.file_exists(highscore_filepath):
+		return
+	file.open(highscore_filepath, File.READ)
+	highscore = file.get_var()
+	file.close()
+
+func save_highscore():
+	if end_score > highscore:
+		var file = File.new()
+		file.open(highscore_filepath, File.WRITE)
+		file.store_var(end_score)
+	
+#func set_highscore(new_value):
+#	highscore = new_value
+#	save_highscore()
+#
+#	if end_score > highscore:
+#		highscore = end_score
