@@ -16,8 +16,8 @@ anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-margin_right = 512.0
-margin_bottom = 300.0
+margin_right = 640.0
+margin_bottom = 360.0
 custom_constants/margin_right = 40
 custom_constants/margin_top = 40
 custom_constants/margin_left = 40
@@ -26,12 +26,12 @@ custom_constants/margin_bottom = 40
 [node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 472.0
-margin_bottom = 260.0
-custom_constants/separation = 56
+margin_right = 600.0
+margin_bottom = 320.0
+custom_constants/separation = 40
 
 [node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
-margin_right = 432.0
+margin_right = 560.0
 margin_bottom = 28.0
 custom_fonts/font = ExtResource( 2 )
 text = "Game Over!"
@@ -39,14 +39,44 @@ align = 1
 valign = 1
 uppercase = true
 
+[node name="CenterContainer2" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]
+margin_top = 68.0
+margin_right = 560.0
+margin_bottom = 111.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer2"]
+margin_left = 211.0
+margin_right = 348.0
+margin_bottom = 43.0
+custom_constants/separation = 15
+
+[node name="highscore" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer2/VBoxContainer"]
+margin_right = 137.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "your score: ..."
+align = 1
+valign = 1
+uppercase = true
+
+[node name="highscore2" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer2/VBoxContainer"]
+margin_top = 29.0
+margin_right = 137.0
+margin_bottom = 43.0
+custom_fonts/font = ExtResource( 1 )
+text = "Highscore: ..."
+align = 1
+valign = 1
+uppercase = true
+
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]
-margin_top = 84.0
-margin_right = 432.0
-margin_bottom = 139.0
+margin_top = 151.0
+margin_right = 560.0
+margin_bottom = 206.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer"]
-margin_left = 148.0
-margin_right = 284.0
+margin_left = 212.0
+margin_right = 348.0
 margin_bottom = 55.0
 custom_constants/separation = 15
 
