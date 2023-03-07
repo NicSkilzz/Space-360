@@ -18,56 +18,56 @@ position = Vector2( 208, 136 )
 [node name="Node" type="Node" parent="."]
 
 [node name="Position2D" type="Position2D" parent="Node" groups=["spawn"]]
-position = Vector2( 24, -24 )
+position = Vector2( 160, -24 )
 scale = Vector2( 1.4779, 1.45859 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Position2D2" type="Position2D" parent="Node" groups=["spawn"]]
-position = Vector2( 208, -24 )
+position = Vector2( 320, -24 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Position2D3" type="Position2D" parent="Node" groups=["spawn"]]
-position = Vector2( 416, -24 )
+position = Vector2( 480, -24 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Position2D4" type="Position2D" parent="Node" groups=["spawn"]]
-position = Vector2( 552, 152 )
+position = Vector2( 664, 152 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Position2D5" type="Position2D" parent="Node" groups=["spawn"]]
-position = Vector2( 352, 312 )
+position = Vector2( 480, 384 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Position2D6" type="Position2D" parent="Node" groups=["spawn"]]
-position = Vector2( 208, 312 )
+position = Vector2( 320, 384 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Position2D7" type="Position2D" parent="Node" groups=["spawn"]]
-position = Vector2( 40, 320 )
+position = Vector2( 160, 384 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Position2D8" type="Position2D" parent="Node" groups=["spawn"]]
-position = Vector2( -72, 200 )
+position = Vector2( -24, 240 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Position2D9" type="Position2D" parent="Node" groups=["spawn"]]
-position = Vector2( -64, 88 )
+position = Vector2( -24, 120 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -83,7 +83,7 @@ autostart = true
 position = Vector2( -40, -80 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathArea"]
-polygon = PoolVector2Array( 616, 16, 616, 424, -48, 424, -48, 16, 32, 16, 8, -16, -96, -16, -96, 456, 672, 456, 672, -16, 8, -16, 32, 16 )
+polygon = PoolVector2Array( 768, -8, 768, 528, -48, 528, -48, -8, 24, -8, 8, -48, -88, -48, -88, 568, 808, 568, 808, -48, 8, -48, 24, -8 )
 
 [node name="score_board" type="CanvasLayer" parent="."]
 
