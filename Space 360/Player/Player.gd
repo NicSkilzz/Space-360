@@ -95,6 +95,11 @@ func _on_player_area_area_entered(area):
 		
 	if area.name == "DeathArea":
 # warning-ignore:return_value_discarded
+		GlobalWorld.end_score = GlobalWorld.score
+		GlobalWorld.score = 0
+		if GlobalWorld.end_score > GlobalWorld.highscore:
+			GlobalWorld.highscore = GlobalWorld.end_score
+			GlobalWorld.save_highscore()
 		get_tree().change_scene("res://Home Screen/death_screen.tscn")
 	if area.name == "repair_item_area" && HEALTH <= 80:
 		HEALTH += 20

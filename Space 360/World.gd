@@ -66,18 +66,19 @@ func load_highscore():
 	if not file.file_exists(highscore_filepath):
 		return
 	file.open(highscore_filepath, File.READ)
-	highscore = file.get_var()
+	highscore = file.get_var(highscore)
 	file.close()
 
 func save_highscore():
 	if end_score > highscore:
 		var file = File.new()
 		file.open(highscore_filepath, File.WRITE)
-		file.store_var(end_score)
-	
-#func set_highscore(new_value):
-#	highscore = new_value
-#	save_highscore()
-#
-#	if end_score > highscore:
-#		highscore = end_score
+		file.store_var()
+		file.close()
+
+func set_highscore(new_value):
+	highscore = new_value
+	save_highscore()
+
+	if end_score > highscore:
+		highscore = end_score
