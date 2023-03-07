@@ -34,6 +34,7 @@ custom_constants/separation = 40
 [node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
 margin_right = 560.0
 margin_bottom = 28.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Game Over!"
 align = 1
