@@ -11,8 +11,8 @@ onready var current_score = $score_board/current_score
 export (int) var score = 0
 export (int) var end_score = 0
 export (float) var asteroid_speed_range = 0.1
-export (int) var highscore = 0
-const highscore_filepath = "res://highscore.data"
+var game_data = {}
+const SAVE_FILE = "res://save_file.save"
 
 var time_elapsed = 0.0
 
@@ -63,22 +63,15 @@ func _on_AsteroidSpawnRimer_timeout():
 
 func load_highscore():
 	var file = File.new()
-	if not file.file_exists(highscore_filepath):
-		return
-	file.open(highscore_filepath, File.READ)
-	highscore = file.get_var(highscore)
+	if not file.file_exists(SAVE_FILE):
+		game_data = {"highscore": 0}
+		save_highscore()
+	file.open(SAVE_FILE, File.READ)
+	game_data = file.get_var()
 	file.close()
 
 func save_highscore():
-	if end_score > highscore:
-		var file = File.new()
-		file.open(highscore_filepath, File.WRITE)
-		file.store_var()
-		file.close()
-
-func set_highscore(new_value):
-	highscore = new_value
-	save_highscore()
-
-	if end_score > highscore:
-		highscore = end_score
+	var file = File.new()
+	file.open(SAVE_FILE, File.WRITE)
+	file.store_var(game_data)
+	file.close()
