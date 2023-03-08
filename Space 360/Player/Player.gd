@@ -6,6 +6,7 @@ onready var movement_bus = AudioServer.get_bus_index("movement_bus")
 onready var movement_sound = $CanvasLayer/movement_sound
 onready var shooting_sound = $Shooting
 onready var bullet_point = $BulletPoint
+onready var save_file = GlobalWorld.game_data
 
 export (int) var HEALTH = 100
 export (int) var SPEED = 200
@@ -21,7 +22,6 @@ var velocity = Vector2()
 
 var bullet = preload("res://Player/Bullet.tscn")
 var can_fire = true
-
 
 #onready var engine_sound = $EngineSound
 func _process(_delta):
@@ -88,8 +88,8 @@ func _on_player_area_area_entered(area):
 # warning-ignore:return_value_discarded
 		GlobalWorld.end_score = GlobalWorld.score
 		GlobalWorld.score = 0
-		if GlobalWorld.end_score > GlobalWorld.highscore:
-			GlobalWorld.highscore = GlobalWorld.end_score
+		if GlobalWorld.end_score > save_file.highscore:
+			save_file.highscore = GlobalWorld.end_score
 			GlobalWorld.save_highscore()
 		get_tree().change_scene("res://Home Screen/death_screen.tscn")
 		
@@ -97,8 +97,8 @@ func _on_player_area_area_entered(area):
 # warning-ignore:return_value_discarded
 		GlobalWorld.end_score = GlobalWorld.score
 		GlobalWorld.score = 0
-		if GlobalWorld.end_score > GlobalWorld.highscore:
-			GlobalWorld.highscore = GlobalWorld.end_score
+		if GlobalWorld.end_score > save_file.highscore:
+			save_file.highscore = GlobalWorld.end_score
 			GlobalWorld.save_highscore()
 		get_tree().change_scene("res://Home Screen/death_screen.tscn")
 	if area.name == "repair_item_area" && HEALTH <= 80:
