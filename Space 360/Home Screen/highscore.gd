@@ -3,4 +3,7 @@ extends Label
 var save_file = GlobalWorld.game_data
 
 func _ready():
-	self.text = "Highscore: " + str(save_file.highscore)
+	if save_file.highscore:
+		self.text = "Your Highscore: " + str(save_file.highscore)
+	else:
+		self.text = "Your Highscore: " + str(0)
