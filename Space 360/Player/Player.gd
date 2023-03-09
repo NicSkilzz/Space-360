@@ -68,7 +68,7 @@ func acceleration(direction):
 func movement_sound_volume_play(sound_velocity):
 	var velocity_length_pre = pow(sound_velocity.x, 2.0) + pow(sound_velocity.y, 2.0) 
 	var velocity_length = pow(velocity_length_pre, 1/2.0)
-	var movement_volume = velocity_length / SPEED * 30 - 40
+	var movement_volume = velocity_length / SPEED * 30 - 35
 	AudioServer.set_bus_mute(movement_bus, false)
 	AudioServer.set_bus_volume_db(movement_bus, movement_volume)
 
