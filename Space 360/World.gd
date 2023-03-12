@@ -38,7 +38,7 @@ func _on_SpawnTimer_timeout():
 	add_child(enemy)
 	enemy.position = node.position
 
-	ship_timer.wait_time = 1/((0.006 * time_elapsed) + 0.1) # select time
+	ship_timer.wait_time = 1/((time_elapsed + 60)*0.001 + 0.1) + 2 # select time
 
 func _on_AsteroidSpawnRimer_timeout():
 		#change Spawn position
@@ -73,7 +73,7 @@ func _on_AsteroidSpawnRimer_timeout():
 		asteroid.add_force(Vector2(), Vector2(rng.randf_range(0, asteroid_speed_range),rng2.randf_range(-asteroid_speed_range,0)))
 		
 		
-	asteroid_timer.wait_time = 1/((0.001 * time_elapsed) + 0.1) # select time
+	asteroid_timer.wait_time = 1/((time_elapsed + 60)*0.001 + 0.1) + 2 # select time
 
 func load_highscore():
 	var file = File.new()
