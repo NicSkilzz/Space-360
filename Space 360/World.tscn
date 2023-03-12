@@ -108,5 +108,8 @@ z_index = -100
 texture = ExtResource( 5 )
 centered = false
 
+[node name="background_music" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
 [connection signal="timeout" from="ShipSpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="AsteroidSpawnRimer" to="." method="_on_AsteroidSpawnRimer_timeout"]

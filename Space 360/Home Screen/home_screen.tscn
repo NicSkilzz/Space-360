@@ -93,5 +93,8 @@ margin_bottom = 55.0
 custom_fonts/font = ExtResource( 1 )
 text = " Quit "
 
+[node name="background_music" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/VBoxContainer/CenterContainer/VBoxContainer/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/VBoxContainer/CenterContainer/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]

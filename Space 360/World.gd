@@ -6,6 +6,7 @@ onready var asteroid_timer = $AsteroidSpawnRimer
 onready var ship_timer = $ShipSpawnTimer
 onready var current_score = $score_board/current_score
 onready var main_player = $Player
+onready var background_music = $background_music
 
 export (int) var score = 0
 export (int) var end_score = 0
