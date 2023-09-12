@@ -3,7 +3,7 @@
 We created a Top-Down Space Shooter using the Godot Engine, writing in GDScript.
 This was a side project, which we did for fun and trying out new things.
 
-## How to Deploy
+## How to Run
 - Download Godot 3
 - Download the Repository from GitHub
 - Open Godot 3 and import the project
