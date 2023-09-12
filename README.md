@@ -17,9 +17,15 @@ This was a side project, which we did for fun and trying out new things.
 - Play Button (start game)
 - Quit Button (exit game)
 
+
 ## In-Game Screen
 ![Game Over](Space%20360/Gameplay%20Screenshot.png)
 ### Features
+- Movement (WASD)
+- Shooting (Aim with mouse and shoot with left mouse button)
+- Asteroids (fly through the screen and inflict damage when contact)
+- Enemys (fly towards the player, try to keep a certain distance to player and other enemies, shoot at player in intervall)
+- End (Infinite, until player dies)
 
 ## Game Over Screen
 ![Game Over](Space%20360/Homescreen%20Screenshot.png)
