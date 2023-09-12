@@ -12,6 +12,10 @@ This was a side project, which we did for fun and trying out new things.
 ## Home Screen
 ![Game Over](Space%20360/Game%20Over%20Screenshot.png)
 ### Features
+- Title
+- Highscore (saved in /Space 360/save_file.save)
+- Play Button (start game)
+- Quit Button (exit game)
 
 ## In-Game Screen
 ![Game Over](Space%20360/Gameplay%20Screenshot.png)
