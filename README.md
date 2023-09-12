@@ -19,7 +19,7 @@ This was a side project, which we did for fun and trying out new things.
 
 
 ## In-Game Screen
-![Game Over](Space%20360/Gameplay%20Screenshot.png)
+![Gameplay](Space%20360/Gameplay%20Screenshot.png)
 ### Features
 - Movement (WASD)
 - Shooting (Aim with mouse and shoot with left mouse button)
@@ -28,7 +28,7 @@ This was a side project, which we did for fun and trying out new things.
 - End (Infinite, until player dies)
 
 ## Game Over Screen
-![Game Over](Space%20360/Homescreen%20Screenshot.png)
+![Homescreen](Space%20360/Homescreen%20Screenshot.png)
 ### Features
 - Score (score from last round)
 - Highscore (saved in /Space 360/save_file.save)
