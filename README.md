@@ -4,4 +4,4 @@
 - Godot Engine
 - Side project for fun
 
-![Alt text](Space 360/Game Over Screenshot.png)
+![Game Over](Space360/Game Over Screenshot.png)
