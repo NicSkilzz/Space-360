@@ -4,4 +4,4 @@
 
 - Top-Down Space Shooter
 - Godot Engine
-- Fun side project
+- Side project for fun
