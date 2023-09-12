@@ -27,6 +27,7 @@ This was a side project, which we did for fun and trying out new things.
 - Enemys (fly towards the player, try to keep a certain distance to player and other enemies, shoot at player in intervall)
 - End (Infinite, until player dies)
 
+
 ## Game Over Screen
 ![Homescreen](Space%20360/Homescreen%20Screenshot.png)
 ### Features
