@@ -1,8 +1,7 @@
 # Space 360
 
-- Top-Down Space Shooter
-- Godot Engine
-- Side project for fun
+We created a Top-Down Space Shooter using the Godot Engine, writing in GDScript.
+This was a side project, which we did for fun and trying out new things.
 
 
 ## Home Screen
