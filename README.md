@@ -30,3 +30,7 @@ This was a side project, which we did for fun and trying out new things.
 ## Game Over Screen
 ![Game Over](Space%20360/Homescreen%20Screenshot.png)
 ### Features
+- Score (score from last round)
+- Highscore (saved in /Space 360/save_file.save)
+- Play again Button (start game)
+- Quit Button (exit game)
