@@ -35,3 +35,10 @@ This was a side project, which we did for fun and trying out new things.
 - Highscore (saved in /Space 360/save_file.save)
 - Play again Button (start game)
 - Quit Button (exit game)
+
+
+## Selfmade Pixel art
+- Player ship
+- Enemy ship
+- Asteroids
+- Background
