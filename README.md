@@ -24,7 +24,7 @@ This was a side project, which we did for fun and trying out new things.
 - Movement (WASD)
 - Shooting (Aim with mouse and shoot with left mouse button)
 - Asteroids (fly through the screen and inflict damage when contact)
-- Enemys (fly towards the player, try to keep a certain distance to player and other enemies, shoot at player in intervall)
+- Enemies (fly towards the player, try to keep a certain distance to player and other enemies, shoot at player in intervall)
 - End (Infinite, until player dies)
 
 
